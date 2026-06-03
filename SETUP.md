@@ -66,7 +66,27 @@ npx shadcn add button dialog input select tabs toast
 
 Lista completa em [ui.shadcn.com](https://ui.shadcn.com/docs/components)
 
-## 7. Deploy (Vercel)
+## 7. Formulario de Contacto (opcional)
+
+O formulario do site funciona **sem backend** — cai para `mailto:` pre-preenchido.
+Para persistir mensagens e receber notificacoes por email:
+
+1. Configurar Supabase (passo 3) e aplicar as migrations — inclui `005_contact_messages.sql`:
+   ```bash
+   supabase db push        # ou correr os SQL de supabase/migrations/
+   ```
+2. Deploy da edge function publica (`verify_jwt = false`, ja em `supabase/config.toml`):
+   ```bash
+   supabase functions deploy submit-contact
+   ```
+3. (Opcional) Notificacao por email — adicionar Supabase Secrets:
+   - `RESEND_API_KEY` — chave da conta [Resend](https://resend.com) (dominio verificado)
+   - `FROM_EMAIL` — remetente verificado
+   - `NOTIFY_EMAIL` — destino (default `graodesolo@gmail.com`)
+
+As mensagens ficam em `contact_messages` (RLS: insert publico, leitura so admin).
+
+## 8. Deploy (Vercel)
 
 1. Push para GitHub
 2. Conectar repo no [Vercel](https://vercel.com)

@@ -1,0 +1,8 @@
+# Configuração local do Supabase CLI — Grão de Solo
+# Docs: https://supabase.com/docs/guides/local-development/cli/config
+
+project_id = "grao-de-solo"
+
+# Formulário de contacto público — sem JWT (a função valida o payload + honeypot).
+[functions.submit-contact]
+verify_jwt = false

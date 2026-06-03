@@ -2,12 +2,13 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
+@import "@fontsource-variable/fraunces";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-    --font-heading: var(--font-sans);
-    --font-sans: 'Geist Variable', sans-serif;
+    --font-heading: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
+    --font-sans: 'Geist Variable', system-ui, -apple-system, sans-serif;
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -39,6 +40,13 @@
     --color-card: var(--card);
     --color-foreground: var(--foreground);
     --color-background: var(--background);
+    /* Marca — Grão de Solo */
+    --color-forest: var(--forest);
+    --color-sage: var(--sage);
+    --color-moss: var(--moss);
+    --color-corten: var(--corten);
+    --color-stone: var(--stone);
+    --color-paper: var(--paper);
     --radius-sm: calc(var(--radius) * 0.6);
     --radius-md: calc(var(--radius) * 0.8);
     --radius-lg: var(--radius);
@@ -48,83 +56,146 @@
     --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/*
+ * Grão de Solo — paleta Zen / Wabi-Sabi.
+ * Papel quente off-white, verde-tinta, forest (logo escuro), sage (logo claro),
+ * corten/terra como acento. Tons OKLCH para uniformidade percetual.
+ */
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --radius: 0.625rem;
-    --sidebar: oklch(0.985 0 0);
-    --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.97 0 0);
-    --sidebar-accent-foreground: oklch(0.205 0 0);
-    --sidebar-border: oklch(0.922 0 0);
-    --sidebar-ring: oklch(0.708 0 0);
+    --background: oklch(0.966 0.012 95);   /* papel quente */
+    --foreground: oklch(0.26 0.022 142);   /* verde-tinta */
+    --card: oklch(0.985 0.008 95);
+    --card-foreground: oklch(0.26 0.022 142);
+    --popover: oklch(0.985 0.008 95);
+    --popover-foreground: oklch(0.26 0.022 142);
+    --primary: oklch(0.46 0.072 138);      /* forest */
+    --primary-foreground: oklch(0.97 0.012 95);
+    --secondary: oklch(0.8 0.058 130);     /* sage */
+    --secondary-foreground: oklch(0.27 0.03 142);
+    --muted: oklch(0.93 0.01 100);
+    --muted-foreground: oklch(0.48 0.018 128);
+    --accent: oklch(0.56 0.1 50);          /* corten / terra */
+    --accent-foreground: oklch(0.98 0.012 90);
+    --destructive: oklch(0.55 0.16 28);
+    --border: oklch(0.875 0.014 108);      /* hairline stone */
+    --input: oklch(0.9 0.012 108);
+    --ring: oklch(0.55 0.06 138);
+    --chart-1: oklch(0.46 0.072 138);      /* forest */
+    --chart-2: oklch(0.72 0.07 130);       /* sage */
+    --chart-3: oklch(0.56 0.1 50);         /* corten */
+    --chart-4: oklch(0.62 0.025 110);      /* stone */
+    --chart-5: oklch(0.34 0.055 145);      /* deep moss */
+    --radius: 0.5rem;
+    --sidebar: oklch(0.97 0.012 95);
+    --sidebar-foreground: oklch(0.26 0.022 142);
+    --sidebar-primary: oklch(0.46 0.072 138);
+    --sidebar-primary-foreground: oklch(0.97 0.012 95);
+    --sidebar-accent: oklch(0.93 0.01 100);
+    --sidebar-accent-foreground: oklch(0.26 0.022 142);
+    --sidebar-border: oklch(0.875 0.014 108);
+    --sidebar-ring: oklch(0.55 0.06 138);
+    /* Tokens de marca (uso direto: text-forest, bg-sage, etc.) */
+    --paper: oklch(0.966 0.012 95);
+    --forest: oklch(0.46 0.072 138);
+    --moss: oklch(0.34 0.055 145);
+    --sage: oklch(0.74 0.066 130);
+    --corten: oklch(0.56 0.1 50);
+    --stone: oklch(0.62 0.025 110);
 }
 
 .dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
+    --background: oklch(0.19 0.022 148);   /* verde-noite */
+    --foreground: oklch(0.95 0.012 95);
+    --card: oklch(0.23 0.024 148);
+    --card-foreground: oklch(0.95 0.012 95);
+    --popover: oklch(0.23 0.024 148);
+    --popover-foreground: oklch(0.95 0.012 95);
+    --primary: oklch(0.79 0.07 130);       /* sage luminoso */
+    --primary-foreground: oklch(0.2 0.025 148);
+    --secondary: oklch(0.3 0.04 145);
+    --secondary-foreground: oklch(0.95 0.012 95);
+    --muted: oklch(0.28 0.025 148);
+    --muted-foreground: oklch(0.72 0.02 120);
+    --accent: oklch(0.64 0.11 52);
+    --accent-foreground: oklch(0.98 0.012 90);
+    --destructive: oklch(0.7 0.19 22);
+    --border: oklch(0.95 0.02 120 / 12%);
+    --input: oklch(0.95 0.02 120 / 16%);
+    --ring: oklch(0.7 0.06 132);
+    --chart-1: oklch(0.79 0.07 130);
+    --chart-2: oklch(0.62 0.08 142);
+    --chart-3: oklch(0.64 0.11 52);
+    --chart-4: oklch(0.6 0.025 110);
+    --chart-5: oklch(0.5 0.06 145);
+    --sidebar: oklch(0.23 0.024 148);
+    --sidebar-foreground: oklch(0.95 0.012 95);
+    --sidebar-primary: oklch(0.79 0.07 130);
+    --sidebar-primary-foreground: oklch(0.2 0.025 148);
+    --sidebar-accent: oklch(0.28 0.025 148);
+    --sidebar-accent-foreground: oklch(0.95 0.012 95);
+    --sidebar-border: oklch(0.95 0.02 120 / 12%);
+    --sidebar-ring: oklch(0.7 0.06 132);
+    --paper: oklch(0.95 0.012 95);
+    --forest: oklch(0.62 0.08 142);
+    --moss: oklch(0.5 0.06 145);
+    --sage: oklch(0.79 0.07 130);
+    --corten: oklch(0.64 0.11 52);
+    --stone: oklch(0.6 0.025 110);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
     }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    }
   body {
     @apply bg-background text-foreground;
     }
-  html {
-    @apply font-sans;
+  /* Fraunces — optical sizing alto + leve "soft" para o ar editorial/orgânico */
+  .font-heading {
+    font-optical-sizing: auto;
+    font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 0;
+    letter-spacing: -0.015em;
     }
+  ::selection {
+    background: oklch(0.74 0.066 130 / 45%);
+    color: oklch(0.22 0.03 145);
+    }
+}
+
+@layer utilities {
+  /* Pequeno caps com tracking — usado em rótulos/eyebrows */
+  .eyebrow {
+    @apply text-xs font-medium uppercase tracking-[0.22em];
+    }
+  /* Textura de grão de papel muito subtil para fundos claros */
+  .grain {
+    position: relative;
+    }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+}
+
+/* Acessibilidade — desligar scroll suave e animações de reveal */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }

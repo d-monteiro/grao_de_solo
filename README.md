@@ -1,66 +1,62 @@
-# Flowzi Base
+# Grão de Solo
 
-Template base para projectos React + Supabase.
+Website do atelier **Grão de Solo** — arquitetura paisagista sustentável e regenerativa (Maia, Portugal).
+*Design que regenera. Paisagens para a vida.*
+
+Single-page institucional com estética **Zen / Wabi-Sabi**: papel off-white, serif Fraunces, verde-musgo, muito espaço e fotografia respirada.
 
 ## Stack
-- React 19 + TypeScript + Vite 6 + SWC
-- Tailwind CSS v4 + shadcn/ui
+- React 19 + TypeScript + Vite 6 (SWC)
+- Tailwind CSS v4 (tema via `@theme inline` em `src/index.css`) + shadcn/ui sobre `@base-ui/react`
 - React Router + React Query
-- Supabase (Auth + DB + Storage + Edge Functions)
+- Supabase (opcional) — formulário de contacto via Edge Function, com fallback `mailto`
+- Tipografia: Fraunces (títulos) + Geist (corpo), via `@fontsource-variable`
 
 ## Quick Start
-
 ```bash
-# 1. Clonar
-git clone https://github.com/flowzi-dev/template.git nome-do-projecto
-cd nome-do-projecto
-rm -rf .git && git init
-
-# 2. Renomear (ver SETUP.md para lista completa)
-# Mudar "Flowzi Base" para o nome do projecto em package.json, index.html, etc.
-
-# 3. Instalar
 npm install
-
-# 4. Dev
-npm run dev    # localhost:8080
+npm run dev      # localhost:8080
 ```
-
-Supabase e opcional em dev — a app funciona sem credenciais configuradas.
+O site funciona **sem Supabase** — o formulário de contacto cai automaticamente para `mailto:` pré-preenchido.
 
 ## Estrutura
-
 ```
 src/
 ├── components/
-│   ├── ui/         # shadcn/ui primitivas
-│   ├── layout/     # Layout da app
-│   ├── auth/       # Autenticacao
-│   └── shared/     # Componentes partilhados
-├── contexts/       # React Contexts
-├── hooks/          # Custom hooks
-├── lib/            # Supabase client, utils
-├── pages/          # Paginas da app
-├── services/       # Data access layer
-└── types/          # TypeScript types
+│   ├── layout/      # Navbar, Footer
+│   ├── sections/    # Hero, Manifesto, Sectors, Process, Gallery, Philosophy, Contact
+│   ├── shared/      # Reveal (scroll-reveal), SectionHeading, Cta
+│   └── ui/          # Primitivas (button, input, textarea, label)
+├── data/            # site.ts (conteúdo), assets.ts (imagens)
+├── hooks/           # useInView, useContactForm
+├── services/        # contact.ts (envio do formulário)
+├── pages/           # Home.tsx (compõe as secções)
+└── index.css        # Design system (tokens OKLCH + fontes)
 ```
 
-## Comandos
+Conteúdo e imagens são centralizados em `src/data/` — editar aí muda o site inteiro.
 
+## Secções
+Hero → Atelier (manifesto) → Setores (residencial + urbano) → Processo (5 fases) → Trabalhos (galeria) → Filosofia → Contacto → Footer. Navegação por âncoras com smooth-scroll.
+
+## Formulário de contacto
+- **Sem backend:** abre o cliente de email pré-preenchido (`mailto:`). Funciona já.
+- **Com Supabase ligado:** grava em `contact_messages` e notifica por email (Resend, opcional).
+
+Ativar o backend (resumo — detalhes em [SETUP.md](SETUP.md)):
+1. Criar projeto Supabase, preencher `.env` (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`).
+2. Aplicar migrations (`supabase/migrations/`) — inclui `005_contact_messages.sql`.
+3. `supabase functions deploy submit-contact` (pública, `verify_jwt = false`).
+4. (Opcional) Secrets `RESEND_API_KEY` + `FROM_EMAIL` + `NOTIFY_EMAIL` para notificação por email.
+
+## Comandos
 ```bash
 npm run dev          # Dev server :8080
-npm run build        # Build producao (tsc + vite build)
+npm run build        # Build produção (tsc + vite build)
 npm run lint         # ESLint
 ```
 
-## Code Quality
-
-- ESLint: `any` proibido, vars mortas, `===` obrigatorio
-- CI: lint com `--max-warnings 0`, TypeScript check, build
-- Ver [LINTING.md](LINTING.md) para detalhes
-
 ## Docs
-
-- [SETUP.md](SETUP.md) — guia de setup completo para novo projecto
-- [ARCHITECTURE.md](ARCHITECTURE.md) — estrutura e organizacao
+- [SETUP.md](SETUP.md) — setup e ativação do backend
+- [ARCHITECTURE.md](ARCHITECTURE.md) — estrutura e organização
 - [LINTING.md](LINTING.md) — regras de code quality

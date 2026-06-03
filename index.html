@@ -3,7 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flowzi Base</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate icon" href="/logoctransparencia.png" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <meta name="theme-color" content="#4A6B2A" />
+
+    <!-- Imagem do Hero (LCP) — descoberta antecipada -->
+    <link rel="preload" as="image" href="/FEATURED.jpg" fetchpriority="high" />
+
+    <title>Grão de Solo — Arquitetura Paisagista Sustentável</title>
+    <meta
+      name="description"
+      content="Atelier de arquitetura paisagista regenerativa na Maia. Jardins sustentáveis, eficientes na água e ricos em biodiversidade — desenhados para as pessoas, em parceria com a natureza."
+    />
+    <meta name="author" content="Grão de Solo" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_PT" />
+    <meta property="og:title" content="Grão de Solo — Arquitetura Paisagista Sustentável" />
+    <meta
+      property="og:description"
+      content="Design que regenera. Paisagens para a vida. Jardins sustentáveis que se vivem como uma extensão natural do ecossistema."
+    />
+    <meta property="og:image" content="/FEATURED.jpg" />
+    <meta property="og:image:alt" content="Jardim contemporâneo ao entardecer desenhado pela Grão de Solo" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Dados estruturados — negócio local (SEO Maia) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Grão de Solo",
+        "description": "Atelier de arquitetura paisagista sustentável e regenerativa na Maia.",
+        "image": "/FEATURED.jpg",
+        "email": "graodesolo@gmail.com",
+        "telephone": "+351915771010",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rua da Estação, 261",
+          "addressLocality": "Maia",
+          "addressCountry": "PT"
+        },
+        "areaServed": "Portugal",
+        "knowsAbout": ["Arquitetura paisagista", "Jardins sustentáveis", "Xeropaisagismo", "Design biofílico"]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

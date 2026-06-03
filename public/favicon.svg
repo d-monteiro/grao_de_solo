@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Grão de Solo">
+  <rect width="64" height="64" rx="15" fill="#4A6B2A"/>
+  <path d="M32 53 V31" fill="none" stroke="#F4F2EA" stroke-width="3.4" stroke-linecap="round"/>
+  <path d="M31.5 37 C22 37 15.5 30.5 15.5 19.5 C26.5 19.5 33 26 31.5 37 Z" fill="#9DB87E"/>
+  <path d="M33 30 C42.5 30 49 23.5 49 12.5 C38 12.5 31.5 19 33 30 Z" fill="#F4F2EA"/>
+</svg>

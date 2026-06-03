@@ -1,15 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
-const queryClient = new QueryClient();
+import { Home } from "@/pages/Home";
 
-function Home() {
-  return (
-    <div className="min-h-screen bg-background flex items-center justify-center">
-      <h1 className="text-4xl font-bold text-foreground">Flowzi Base</h1>
-    </div>
-  );
-}
+const queryClient = new QueryClient();
 
 function App() {
   return (
@@ -17,6 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="*" element={<Home />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
