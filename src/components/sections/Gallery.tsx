@@ -4,30 +4,13 @@ import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Reveal } from "@/components/shared/Reveal";
 
 /**
- * Galeria de trabalhos — grid assimétrico (masonry-like) que respira.
- * Spans variados em lg dão ritmo wabi-sabi: 1º item alto, 4º largo.
- * Legenda (alt) revela-se em hover sobre gradiente subtil.
+ * Galeria de trabalhos. Grid uniforme com proporção constante (aspect 4/3),
+ * para que todas as linhas fechem à mesma altura e o fundo fique sempre liso,
+ * sem espaços brancos. A legenda (alt) revela-se em hover sobre gradiente subtil.
  */
-
-// Spans por posição — vazios de tamanhos diferentes para um ritmo orgânico.
-const spans = [
-  "lg:row-span-2",
-  "",
-  "",
-  "lg:col-span-2",
-  "",
-  "lg:row-span-2",
-] as const;
-
 export function Gallery() {
   return (
     <section id={gallery.id} className="relative py-24 md:py-32">
-      {/* Halo subtil — profundidade silenciosa, à imagem do Hero */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-24 right-0 -z-10 size-[34rem] rounded-full bg-secondary/15 blur-3xl"
-      />
-
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
         <SectionHeading
           eyebrow={gallery.eyebrow}
@@ -35,21 +18,17 @@ export function Gallery() {
           lead={gallery.lead}
         />
 
-        <div className="mt-14 grid auto-rows-[14rem] grid-flow-dense grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:mt-20 lg:grid-cols-3 lg:auto-rows-[15rem]">
+        <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:mt-20 lg:grid-cols-3">
           {gallery.itemKeys.map((key, i) => (
-            <Reveal
-              key={key}
-              delay={i * 70}
-              className={spans[i] ?? ""}
-            >
-              <figure className="group relative h-full overflow-hidden rounded-2xl ring-1 ring-border">
+            <Reveal key={key} delay={i * 70}>
+              <figure className="group relative overflow-hidden rounded-2xl ring-1 ring-border">
                 <img
                   src={images[key].src}
                   alt={images[key].alt}
                   loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-[1000ms] ease-out group-hover:scale-[1.05]"
+                  className="aspect-[4/3] w-full object-cover transition-transform duration-[1000ms] ease-out group-hover:scale-[1.05]"
                 />
-                {/* Gradiente — assenta a legenda e dá peso wabi-sabi */}
+                {/* Gradiente - assenta a legenda e dá peso wabi-sabi */}
                 <div
                   aria-hidden
                   className="absolute inset-0 bg-gradient-to-t from-foreground/55 via-foreground/10 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-90"

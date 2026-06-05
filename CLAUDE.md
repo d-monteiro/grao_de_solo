@@ -29,5 +29,8 @@ React 19 · Vite 6 · Tailwind v4 (`@theme inline`) · shadcn/ui sobre `@base-ui
 - `npm run build` + `npm run lint` como gate antes de dar tarefa por concluída.
 
 ## Notas
+- **Hero**: imagem de fundo full-bleed (`FEATURED.jpg`, `object-cover`) que cobre a viewport com overlay escuro e texto claro — sem badges nem decoração.
+- **Favicon**: gerado de `public/logoctransparencia.png` (recorte do "G"-folha, sem texto) → `public/favicon.png` + `public/apple-touch-icon.png`. `<title>` do separador é só "Grão de Solo".
+- **Estética**: editorial limpo, sem ícones decorativos em bolinhas, badges de canto, emojis ou scroll cues. Wordmark tipográfico (Fraunces, "de Solo" em itálico). Footer compacto.
 - Tailwind v4 **não** usa `tailwind.config.ts` — o tema vive em `src/index.css`.
 - No Windows, se `vite build` falhar por `@rollup/rollup-win32-x64-msvc`, reinstalar limpo: `rm -rf node_modules package-lock.json && npm install` (bug conhecido do npm com optional deps).

@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
-import { Menu, Sprout, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { brand, nav } from "@/data/site";
 import { Cta } from "@/components/shared/Cta";
 
-function Wordmark({ onClick }: { onClick?: () => void }) {
+function Wordmark({ light, onClick }: { light: boolean; onClick?: () => void }) {
   return (
-    <a href="#top" onClick={onClick} className="group flex items-center gap-2.5" aria-label={brand.name}>
-      <span className="flex size-9 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors group-hover:bg-primary/15">
-        <Sprout className="size-5" />
-      </span>
-      <span className="flex flex-col leading-none">
-        <span className="font-heading text-lg font-medium text-foreground">{brand.name}</span>
-        <span className="text-[0.6rem] font-medium tracking-[0.2em] text-muted-foreground uppercase">
-          {brand.discipline}
-        </span>
-      </span>
+    <a
+      href="#top"
+      onClick={onClick}
+      aria-label={brand.name}
+      className={cn(
+        "font-heading text-[1.65rem] leading-none font-medium tracking-[-0.01em] transition-colors",
+        light ? "text-paper" : "text-foreground",
+      )}
+    >
+      Grão <span className="italic font-normal">de Solo</span>
     </a>
   );
 }
@@ -24,6 +24,9 @@ function Wordmark({ onClick }: { onClick?: () => void }) {
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  // Texto claro enquanto a navbar está transparente sobre o hero escuro.
+  const light = !scrolled && !open;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -58,14 +61,17 @@ export function Navbar() {
       )}
     >
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-6 px-5 sm:px-8 lg:px-12">
-        <Wordmark onClick={() => setOpen(false)} />
+        <Wordmark light={light} onClick={() => setOpen(false)} />
 
         <div className="hidden items-center gap-9 lg:flex">
           {nav.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="relative text-sm font-medium text-foreground/80 transition-colors hover:text-foreground after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
+              className={cn(
+                "relative text-sm font-medium transition-colors after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full",
+                light ? "text-paper/85 hover:text-paper" : "text-foreground/80 hover:text-foreground",
+              )}
             >
               {item.label}
             </a>
@@ -82,7 +88,10 @@ export function Navbar() {
             aria-label={open ? "Fechar menu" : "Abrir menu"}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            className="flex size-11 items-center justify-center rounded-full text-foreground transition-colors hover:bg-foreground/[0.06] lg:hidden"
+            className={cn(
+              "flex size-11 items-center justify-center rounded-full transition-colors lg:hidden",
+              light ? "text-paper hover:bg-paper/10" : "text-foreground hover:bg-foreground/[0.06]",
+            )}
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>

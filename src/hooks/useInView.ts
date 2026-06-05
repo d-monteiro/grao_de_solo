@@ -10,7 +10,7 @@ interface UseInViewOptions {
 }
 
 /**
- * Observa se um elemento entrou no viewport — base das animações de reveal.
+ * Observa se um elemento entrou no viewport - base das animações de reveal.
  * Respeita `prefers-reduced-motion`: nesse caso considera sempre visível.
  */
 export function useInView<T extends HTMLElement = HTMLDivElement>({

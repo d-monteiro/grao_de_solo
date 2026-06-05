@@ -18,7 +18,7 @@ const EMPTY: ContactInput = {
 };
 
 /**
- * Lógica do formulário de contacto — separada da UI.
+ * Lógica do formulário de contacto - separada da UI.
  * Faz validação local mínima, delega a entrega a `submitContact`
  * (Supabase edge function ou fallback mailto) e expõe o estado para o ecrã.
  */

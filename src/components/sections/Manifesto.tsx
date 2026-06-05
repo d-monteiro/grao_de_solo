@@ -4,7 +4,7 @@ import { Reveal } from "@/components/shared/Reveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 
 /**
- * Secção Manifesto ("O Atelier") — apresenta a filosofia do estúdio em duas
+ * Secção Manifesto ("O Atelier") - apresenta a filosofia do estúdio em duas
  * colunas: texto institucional + indicadores à esquerda, planta em aguarela à
  * direita. Vibe wabi-sabi: muito ar, hairlines, halo subtil e hover lento.
  */
@@ -26,28 +26,23 @@ export function Manifesto() {
             ))}
 
             <Reveal delay={120 + manifesto.paragraphs.length * 80}>
-              <dl className="mt-4 grid grid-cols-3 gap-6 border-t border-border pt-8">
+              <dl className="mt-4 grid grid-cols-3 items-start gap-x-6 border-t border-border pt-8">
                 {manifesto.stats.map((stat) => (
-                  <div key={stat.label} className="flex flex-col-reverse gap-2">
+                  <div key={stat.label} className="flex flex-col gap-2">
+                    <dd className="font-heading text-3xl leading-none font-medium text-primary md:text-4xl">
+                      {stat.value}
+                    </dd>
                     <dt className="text-sm leading-snug text-pretty text-muted-foreground">
                       {stat.label}
                     </dt>
-                    <dd className="font-heading text-3xl font-medium text-primary md:text-4xl">
-                      {stat.value}
-                    </dd>
                   </div>
                 ))}
               </dl>
             </Reveal>
           </div>
 
-          {/* Coluna imagem — planta em aguarela */}
+          {/* Coluna imagem - planta em aguarela (hover aproxima o sketch) */}
           <Reveal delay={160} className="relative">
-            {/* Halo decorativo para profundidade */}
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -right-8 -bottom-10 -z-10 size-64 rounded-3xl bg-secondary/20 blur-2xl"
-            />
             <div className="group overflow-hidden rounded-3xl shadow-[0_24px_70px_-30px_rgba(40,55,30,0.45)] ring-1 ring-border">
               <img
                 src={images.watercolorPlan.src}

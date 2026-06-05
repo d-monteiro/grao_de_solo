@@ -24,20 +24,17 @@ export function Contact() {
 
   return (
     <section id={contact.id} className="relative py-24 md:py-32">
-      <div aria-hidden className="pointer-events-none absolute -top-24 right-0 -z-10 size-[34rem] rounded-full bg-secondary/20 blur-3xl" />
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Info */}
-          <div>
+        <div className="grid items-stretch gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Info - esta coluna acompanha a altura do formulário */}
+          <div className="flex flex-col">
             <SectionHeading eyebrow={contact.eyebrow} title={contact.title} lead={contact.lead} />
 
-            <ul className="mt-10 flex flex-col gap-2">
+            <ul className="mt-10 flex flex-col gap-5">
               {channels.map(({ icon: Icon, label, value, href }, i) => {
                 const inner = (
                   <>
-                    <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors group-hover/row:bg-primary/15">
-                      <Icon className="size-5" />
-                    </span>
+                    <Icon className="mt-0.5 size-5 shrink-0 text-primary/80" />
                     <span className="flex flex-col">
                       <span className="eyebrow text-muted-foreground">{label}</span>
                       <span className="text-base font-medium text-foreground">{value}</span>
@@ -47,23 +44,23 @@ export function Contact() {
                 return (
                   <Reveal as="li" key={label} delay={i * 80}>
                     {href ? (
-                      <a href={href} className="group/row flex items-center gap-4 rounded-2xl py-2 transition-colors hover:text-foreground">
+                      <a href={href} className="flex items-start gap-3 transition-colors hover:text-foreground">
                         {inner}
                       </a>
                     ) : (
-                      <div className="group/row flex items-center gap-4 py-2">{inner}</div>
+                      <div className="flex items-start gap-3">{inner}</div>
                     )}
                   </Reveal>
                 );
               })}
             </ul>
 
-            <Reveal delay={240}>
+            <Reveal delay={240} className="mt-8 flex-1">
               <iframe
-                title="Localização — Grão de Solo"
+                title="Localização: Grão de Solo"
                 src={`https://www.google.com/maps?q=${encodeURIComponent(contact.mapsQuery)}&output=embed`}
                 loading="lazy"
-                className="mt-6 h-56 w-full rounded-2xl border border-border grayscale-[0.2]"
+                className="h-full min-h-64 w-full rounded-2xl border border-border grayscale-[0.2]"
               />
             </Reveal>
           </div>
@@ -88,7 +85,7 @@ export function Contact() {
                 <Input id="phone" name="phone" type="tel" value={values.phone ?? ""} onChange={onChange} autoComplete="tel" placeholder="9XX XXX XXX" />
               </div>
 
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-1 flex-col gap-2">
                 <Label htmlFor="message">Mensagem</Label>
                 <Textarea id="message" name="message" value={values.message} onChange={onChange} aria-invalid={!!errors.message} aria-describedby={errors.message ? "message-error" : undefined} placeholder="Fale-nos do seu espaço e da sua visão…" rows={5} />
                 {errors.message && <span id="message-error" role="alert" className="text-sm text-destructive">{errors.message}</span>}
@@ -123,7 +120,7 @@ export function Contact() {
               )}
               {status === "mailto" && (
                 <p role="status" className="text-sm text-muted-foreground">
-                  Abrimos o seu email — confirme o envio para concluir.
+                  Abrimos o seu email. Confirme o envio para concluir.
                 </p>
               )}
               {status === "error" && (

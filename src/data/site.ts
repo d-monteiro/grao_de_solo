@@ -1,5 +1,5 @@
 /**
- * Conteúdo do website Grão de Solo — atelier de arquitetura paisagista.
+ * Conteúdo do website Grão de Solo - atelier de arquitetura paisagista.
  * Fonte: public/Texto site.docx. Texto em PT-PT com acentuação correta.
  * Centralizado aqui para que todas as secções partilhem a mesma fonte de verdade.
  */
@@ -20,12 +20,11 @@ export const nav = [
 ] as const;
 
 export const hero = {
-  eyebrow: "Atelier de Arquitetura Paisagista",
   titleTop: "Design que Regenera.",
   titleBottom: "Paisagens para a Vida.",
   subtitle:
-    "Unimos o rigor da arquitetura paisagista à urgência da responsabilidade ecológica — jardins sustentáveis que se vivem como uma extensão natural do ecossistema.",
-  ctaPrimary: { label: "Cocriar o meu refúgio", href: "#contacto" },
+    "Unimos o rigor da arquitetura paisagista à responsabilidade ecológica: jardins sustentáveis que funcionam como uma extensão natural do ecossistema.",
+  ctaPrimary: { label: "Pedir uma proposta", href: "#contacto" },
   ctaSecondary: { label: "O nosso processo", href: "#processo" },
 } as const;
 
@@ -40,12 +39,11 @@ export const manifesto = {
   stats: [
     { value: "100%", label: "Espécies autóctones e adaptadas" },
     { value: "5 fases", label: "Do diagnóstico à gestão" },
-    { value: "Zero", label: "Desperdício — materiais circulares" },
+    { value: "Zero", label: "Desperdício, materiais circulares" },
   ],
 } as const;
 
 export interface SectorFeature {
-  icon: string;
   title: string;
   desc: string;
 }
@@ -65,22 +63,19 @@ export const sectors: Sector[] = [
     id: "residencial",
     index: "01",
     kicker: "Setor Residencial Privado",
-    title: "O Seu Refúgio Consciente",
+    title: "O Jardim como Extensão da Casa",
     lead: "Para habitações particulares, projetamos jardins que funcionam como uma extensão natural da casa. Criamos refúgios de bem-estar que evoluem com o tempo, garantindo beleza estética com uma pegada ecológica mínima.",
     imageKey: "residentialPath",
     features: [
       {
-        icon: "Compass",
         title: "Projetos conectados",
         desc: "Desenhos personalizados que respeitam a arquitetura da casa e o estilo de vida da família.",
       },
       {
-        icon: "Droplets",
         title: "Eficiência hídrica",
         desc: "Substituição de relvados de alto consumo por soluções de xeropaisagismo e espécies autóctones exuberantes.",
       },
       {
-        icon: "Sprout",
         title: "Baixa manutenção",
         desc: "Sistemas inteligentes que reduzem o esforço e o custo de conservação a longo prazo.",
       },
@@ -95,22 +90,18 @@ export const sectors: Sector[] = [
     imageKey: "stoneWall",
     features: [
       {
-        icon: "Leaf",
         title: "Design biofílico",
         desc: "Abordagem arquitetónica que integra elementos naturais nos espaços construídos para reconectar os seres humanos com a natureza.",
       },
       {
-        icon: "CloudRain",
         title: "Adaptação climática",
         desc: "Jardins de chuva, bacias de retenção integradas e sistemas de drenagem sustentável.",
       },
       {
-        icon: "Trees",
         title: "Restauro ecológico",
         desc: "Reintrodução de flora nativa para promover corredores ecológicos e biodiversidade urbana.",
       },
       {
-        icon: "ShieldCheck",
         title: "Durabilidade e segurança",
         desc: "Materiais circulares e espécies arbóreas resilientes ao vandalismo e ao tráfego urbano.",
       },
@@ -160,8 +151,8 @@ export const process = {
 export const gallery = {
   id: "trabalhos",
   eyebrow: "Trabalhos & Inspiração",
-  title: "Paisagens que resistem ao teste do tempo",
-  lead: "Do jardim seco de inspiração zen ao espelho de água em aço corten — cada projeto é um ecossistema desenhado para evoluir.",
+  title: "Projetos que evoluem com o tempo",
+  lead: "Do jardim seco de inspiração zen ao espelho de água em aço corten, cada projeto é um ecossistema desenhado para evoluir.",
   itemKeys: [
     "zenKyoto",
     "cortenPond",
@@ -174,16 +165,16 @@ export const gallery = {
 
 export const philosophy = {
   id: "visao",
-  eyebrow: "O Futuro é Verde e Resiliente",
+  eyebrow: "A nossa visão",
   body: "Na Grão de Solo transformamos a relação entre a arquitetura humana e o ecossistema vivo. Somos um atelier especializado em arquitetura paisagista, focado em projetos de exteriores que unem estética intemporal, funcionalidade e o respeito absoluto pela biodiversidade local.",
   quote: "Um jardim não deve apenas ser contemplado, mas sim vivido como uma extensão natural e equilibrada do ecossistema.",
 } as const;
 
 export const contact = {
   id: "contacto",
-  eyebrow: "Vamos Cocriar",
-  title: "Cocriar o seu refúgio connosco",
-  lead: "Conte-nos sobre o seu espaço e a sua visão. Respondemos a cada mensagem com um primeiro olhar sobre o potencial ecológico do lugar.",
+  eyebrow: "Contacto",
+  title: "Falemos do seu projeto",
+  lead: "Conte-nos sobre o seu espaço. Respondemos a cada mensagem com um primeiro olhar sobre o potencial do lugar.",
   email: "graodesolo@gmail.com",
   phone: "915 771 010",
   phoneHref: "+351915771010",

@@ -6,7 +6,7 @@ interface SectionHeadingProps {
   title: string;
   lead?: string;
   align?: "left" | "center";
-  /** Tom do bloco — claro para faixas escuras. */
+  /** Tom do bloco - claro para faixas escuras. */
   tone?: "default" | "inverse";
   className?: string;
 }

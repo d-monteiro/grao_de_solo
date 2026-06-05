@@ -44,7 +44,7 @@ function buildWelcomeEmail(name: string): { subject: string; html: string } {
   return {
     subject: "Bem-vindo!",
     html: emailShell(
-      "Bem-vindo! 🎉",
+      "Bem-vindo!",
       `<p>Ola <strong>${safeName}</strong>,</p>
        <p>A tua conta foi criada com sucesso. Ja podes comecar a explorar a plataforma.</p>
        <p style="text-align:center;padding:20px 0;">
@@ -62,7 +62,7 @@ function buildPurchaseEmail(name: string, tier: string): { subject: string; html
   return {
     subject: "Compra confirmada!",
     html: emailShell(
-      "Compra Confirmada ✅",
+      "Compra Confirmada",
       `<p>Ola <strong>${safeName}</strong>,</p>
        <p>O teu plano <strong>${escapeHtml(tier)}</strong> esta ativo. Bom trabalho!</p>`
     ),

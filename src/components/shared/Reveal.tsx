@@ -6,7 +6,7 @@ import { useInView } from "@/hooks/useInView";
 interface RevealProps {
   children: ReactNode;
   className?: string;
-  /** Atraso em ms — escalona elementos de uma mesma secção. */
+  /** Atraso em ms - escalona elementos de uma mesma secção. */
   delay?: number;
   /** Elemento HTML a renderizar (default: div). */
   as?: ElementType;
@@ -14,7 +14,7 @@ interface RevealProps {
 
 /**
  * Envolve conteúdo numa animação de entrada suave (fade + translate)
- * quando entra no viewport. Lenta e contida — vibe wabi-sabi.
+ * quando entra no viewport. Lenta e contida - vibe wabi-sabi.
  * Em prefers-reduced-motion o conteúdo aparece imediatamente (via useInView).
  */
 export function Reveal({ children, className, delay = 0, as: Tag = "div" }: RevealProps) {

@@ -6,7 +6,7 @@ export interface ContactInput {
   email: string;
   phone?: string;
   message: string;
-  /** Honeypot anti-bot — tem de ficar sempre vazio. */
+  /** Honeypot anti-bot - tem de ficar sempre vazio. */
   company?: string;
 }
 
@@ -17,7 +17,7 @@ export type ContactResult =
 
 /** Constrói um link mailto pré-preenchido como fallback de entrega. */
 function buildMailto(data: ContactInput): string {
-  const subject = `Novo contacto do site — ${data.name}`;
+  const subject = `Novo contacto do site: ${data.name}`;
   const body = [
     `Nome: ${data.name}`,
     `Email: ${data.email}`,
@@ -40,7 +40,7 @@ export function openMailto(data: ContactInput): void {
  * - Sem backend, ou em falha: abre o cliente de email pré-preenchido (nunca perde o lead).
  */
 export async function submitContact(data: ContactInput): Promise<ContactResult> {
-  // Bot apanhado pelo honeypot — finge sucesso, não envia nada.
+  // Bot apanhado pelo honeypot - finge sucesso, não envia nada.
   if (data.company && data.company.trim() !== "") {
     return { status: "sent" };
   }

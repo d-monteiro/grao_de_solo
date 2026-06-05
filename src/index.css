@@ -40,7 +40,7 @@
     --color-card: var(--card);
     --color-foreground: var(--foreground);
     --color-background: var(--background);
-    /* Marca — Grão de Solo */
+    /* Marca - Grão de Solo */
     --color-forest: var(--forest);
     --color-sage: var(--sage);
     --color-moss: var(--moss);
@@ -57,7 +57,7 @@
 }
 
 /*
- * Grão de Solo — paleta Zen / Wabi-Sabi.
+ * Grão de Solo - paleta Zen / Wabi-Sabi.
  * Papel quente off-white, verde-tinta, forest (logo escuro), sage (logo claro),
  * corten/terra como acento. Tons OKLCH para uniformidade percetual.
  */
@@ -157,7 +157,7 @@
   body {
     @apply bg-background text-foreground;
     }
-  /* Fraunces — optical sizing alto + leve "soft" para o ar editorial/orgânico */
+  /* Fraunces - optical sizing alto + leve "soft" para o ar editorial/orgânico */
   .font-heading {
     font-optical-sizing: auto;
     font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 0;
@@ -170,7 +170,7 @@
 }
 
 @layer utilities {
-  /* Pequeno caps com tracking — usado em rótulos/eyebrows */
+  /* Pequeno caps com tracking - usado em rótulos/eyebrows */
   .eyebrow {
     @apply text-xs font-medium uppercase tracking-[0.22em];
     }
@@ -188,7 +188,7 @@
     }
 }
 
-/* Acessibilidade — desligar scroll suave e animações de reveal */
+/* Acessibilidade - desligar scroll suave e animações de reveal */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *,

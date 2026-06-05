@@ -3,24 +3,24 @@ import { Reveal } from "@/components/shared/Reveal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 
 /**
- * Secção Processo — timeline vertical zen (5 fases do conceito à execução).
+ * Secção Processo - timeline vertical zen (5 fases do conceito à execução).
  * Linha hairline contínua, nós na linha e números serif grandes em sage.
  * Mobile: número acima do texto. Desktop: número à esquerda, alinhado à linha.
  */
 export function Process() {
   return (
-    <section id={process.id} className="relative py-24 md:py-32">
-      {/* Halo subtil — profundidade sem ruído, como no Hero */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute top-1/4 -left-40 -z-10 size-[32rem] rounded-full bg-secondary/20 blur-3xl"
-      />
-
+    <section id={process.id} className="relative pb-24 md:pb-32">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
-        <SectionHeading eyebrow={process.eyebrow} title={process.title} lead={process.lead} />
+        <span aria-hidden className="block h-px w-full bg-border" />
+        <SectionHeading
+          className="mt-14 md:mt-20"
+          eyebrow={process.eyebrow}
+          title={process.title}
+          lead={process.lead}
+        />
 
         <div className="relative mt-16 md:mt-20">
-          {/* Linha vertical hairline — alinhada ao centro dos nós */}
+          {/* Linha vertical hairline - alinhada ao centro dos nós */}
           <span
             aria-hidden
             className="absolute top-2 bottom-2 left-[7px] hidden w-px bg-border md:left-[calc(5rem-0.5px)] md:block"
